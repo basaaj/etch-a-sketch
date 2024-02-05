@@ -12,4 +12,12 @@ for (let i = 0; i < 16; i++) {
 
     container.appendChild(currRow);
 }
+
+const boxes = document.querySelectorAll('.grid-box');
+
+boxes.forEach(box => {
+    box.addEventListener('mouseover', function() {
+        box.setAttribute('style', 'background: pink;');
+    });
+});
    
