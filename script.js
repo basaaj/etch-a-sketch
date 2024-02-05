@@ -20,4 +20,17 @@ boxes.forEach(box => {
         box.setAttribute('style', 'background: pink;');
     });
 });
+
+const reset = document.querySelector('button');
+
+reset.addEventListener('click', askSize);
+
+function askSize() {
+    let newSize = prompt("Enter a new grid size", "Enter a number less than 100");
+
+    if (newSize <= 0 || newSize > 100) {
+        alert('Enter a number greater than 0 and less than 100!');
+        askSize();
+    }
+}
    
