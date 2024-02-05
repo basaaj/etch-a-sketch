@@ -1,25 +1,6 @@
-const container = document.querySelector(".grid");
+const grid = document.querySelector(".grid");
 
-for (let i = 0; i < 16; i++) {
-    let currRow = document.createElement('grid-row');
-    
-    for (let j = 0; j < 16; j++) {
-        let currBox = document.createElement('div');
-        currBox.classList.add('grid-box');
-    
-        currRow.appendChild(currBox);
-    }
-
-    container.appendChild(currRow);
-}
-
-const boxes = document.querySelectorAll('.grid-box');
-
-boxes.forEach(box => {
-    box.addEventListener('mouseover', function() {
-        box.setAttribute('style', 'background: pink;');
-    });
-});
+populateGrid(16);
 
 const reset = document.querySelector('button');
 
@@ -32,5 +13,36 @@ function askSize() {
         alert('Enter a number greater than 0 and less than 100!');
         askSize();
     }
+
+    else {
+        populateGrid(newSize);
+    }
 }
-   
+
+function populateGrid(size) {
+    // Reset grid
+    grid.innerHTML = null;
+
+    // Populate grid boxes
+    for (let i = 0; i < size; i++) {
+        let currRow = document.createElement('grid-row');
+        
+        for (let j = 0; j < size; j++) {
+            let currBox = document.createElement('div');
+            currBox.classList.add('grid-box');
+        
+            currRow.appendChild(currBox);
+        }
+    
+        grid.appendChild(currRow);
+    }
+
+    // Add event listeners to boxes
+    let boxes = document.querySelectorAll('.grid-box');
+
+    boxes.forEach(box => {
+        box.addEventListener('mouseover', function() {
+            box.setAttribute('style', 'background: pink;');
+        });
+    });
+}
