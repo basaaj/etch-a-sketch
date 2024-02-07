@@ -1,11 +1,22 @@
-const grid = document.querySelector(".grid");
-const GRID_SIZE = 500;
+const grid = document.querySelector('.grid');
+const reset = document.querySelector('#reset');
+const blackButton = document.querySelector('#black');
+const rainbowButton = document.querySelector('#rainbow');
+const GRID_SIZE = 600;
+
+let mode = 'black';
 
 populateGrid(16);
 
-const reset = document.querySelector('button');
-
 reset.addEventListener('click', askSize);
+
+blackButton.addEventListener('click', function() {
+    mode = 'black';
+});
+
+rainbowButton.addEventListener('click', function() {
+    mode = 'rainbow';
+});
 
 function askSize() {
     let newSize = prompt("Enter a new grid size", "Enter a number less than 100");
@@ -48,7 +59,15 @@ function populateGrid(size) {
 
     boxes.forEach(box => {
         box.addEventListener('mouseover', function() {
-            box.style.background = 'pink';
+            // Assume current mode is 1 color
+            let color = mode;
+
+            // Randomize color if in rainbow mode
+            if (mode === 'rainbow') {
+                color = 'rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')';
+            }
+
+            box.style.background = color;
         });
     });
 }
