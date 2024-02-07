@@ -3,14 +3,55 @@
 }
 
 body {
+    height: 95vh;
+    background: rgb(26, 22, 22);
+}
+
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    margin-left: 200px;
+    color: white;
+    font-size: 60px;
+    font-family: monospace;
+}
+
+.sketch-area {
+    display: flex;
+    flex-direction: row;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 200px;
+}
+
+button {
+    font-family: monospace;
+    font-size: 16px;
+    margin: 20px;
+    padding: 15px;
+    min-width: 75px;
+    min-height: 30px;
+    border-radius: 35px;
+    background-color: white;
+    color: black;
 }
 
 .grid {
     display: flex;
     flex-direction: row;
+    box-shadow: black 20px;
+    border: 15px solid rgb(215, 215, 215);
+    border-radius: 10px;
+    background: white;
 }
 
 .grid-row {
