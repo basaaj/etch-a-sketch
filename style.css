@@ -15,7 +15,7 @@ body {
 }
 
 h3 {
-    margin-left: 200px;
+    margin-left: 275px;
     color: white;
     font-size: 60px;
     font-family: monospace;
@@ -30,7 +30,7 @@ h3 {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    width: 200px;
+    width: 275px;
 }
 
 button {
@@ -38,11 +38,19 @@ button {
     font-size: 16px;
     margin: 20px;
     padding: 15px;
-    min-width: 75px;
+    width: 200px;
     min-height: 30px;
     border-radius: 35px;
     background-color: white;
     color: black;
+}
+
+#size {
+    background-color: rgb(255, 221, 128);
+}
+
+#clear {
+    background-color: rgb(255, 106, 106);
 }
 
 .grid {
