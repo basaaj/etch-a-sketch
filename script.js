@@ -3,10 +3,10 @@ const reset = document.querySelector('#reset');
 const blackButton = document.querySelector('#black');
 const rainbowButton = document.querySelector('#rainbow');
 const GRID_SIZE = 600;
-
 let mode = 'black';
 
 populateGrid(16);
+addColorChangeEvent();
 
 reset.addEventListener('click', askSize);
 
@@ -19,7 +19,7 @@ rainbowButton.addEventListener('click', function() {
 });
 
 function askSize() {
-    let newSize = prompt("Enter a new grid size", "Enter a number less than 100");
+    let newSize = prompt("Enter a new grid size less than 100");
 
     if (newSize <= 0 || newSize > 100) {
         alert('Enter a number greater than 0 and less than 100!');
@@ -53,10 +53,12 @@ function populateGrid(size) {
     
         grid.appendChild(currRow);
     }
+}
 
-    // Add event listeners to boxes
+function addColorChangeEvent() {
     let boxes = document.querySelectorAll('.grid-box');
 
+    // Change box color upon hover
     boxes.forEach(box => {
         box.addEventListener('mouseover', function() {
             // Assume current mode is 1 color
