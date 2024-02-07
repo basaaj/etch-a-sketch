@@ -1,5 +1,5 @@
 const grid = document.querySelector('.grid');
-const reset = document.querySelector('#reset');
+const changeSizeButton = document.querySelector('#size');
 const blackButton = document.querySelector('#black');
 const rainbowButton = document.querySelector('#rainbow');
 const clearButton = document.querySelector('#clear');
@@ -9,7 +9,7 @@ let mode = 'black';
 
 populateGrid(currSize);
 
-reset.addEventListener('click', askSize);
+changeSizeButton.addEventListener('click', askSize);
 
 blackButton.addEventListener('click', function() {
     mode = 'black';
@@ -24,7 +24,7 @@ clearButton.addEventListener('click', function() {
 });
 
 function askSize() {
-    let newSize = prompt("Enter a new grid size less than 100");
+    let newSize = prompt("Enter a new grid size less than 100:");
 
     if (newSize <= 0 || newSize > 100) {
         alert('Enter a number greater than 0 and less than 100!');
