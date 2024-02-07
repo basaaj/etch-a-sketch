@@ -6,7 +6,6 @@ const GRID_SIZE = 600;
 let mode = 'black';
 
 populateGrid(16);
-addColorChangeEvent();
 
 reset.addEventListener('click', askSize);
 
@@ -53,6 +52,8 @@ function populateGrid(size) {
     
         grid.appendChild(currRow);
     }
+
+    addColorChangeEvent();
 }
 
 function addColorChangeEvent() {
