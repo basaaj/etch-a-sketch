@@ -2,10 +2,12 @@ const grid = document.querySelector('.grid');
 const reset = document.querySelector('#reset');
 const blackButton = document.querySelector('#black');
 const rainbowButton = document.querySelector('#rainbow');
+const clearButton = document.querySelector('#clear');
 const GRID_SIZE = 600;
+let currSize = 16;
 let mode = 'black';
 
-populateGrid(16);
+populateGrid(currSize);
 
 reset.addEventListener('click', askSize);
 
@@ -15,6 +17,10 @@ blackButton.addEventListener('click', function() {
 
 rainbowButton.addEventListener('click', function() {
     mode = 'rainbow';
+});
+
+clearButton.addEventListener('click', function() {
+    populateGrid(currSize);
 });
 
 function askSize() {
@@ -31,6 +37,8 @@ function askSize() {
 }
 
 function populateGrid(size) {
+    currSize = size;
+
     // Reset grid
     grid.innerHTML = null;
 
