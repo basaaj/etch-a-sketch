@@ -1,4 +1,5 @@
 const grid = document.querySelector(".grid");
+const GRID_SIZE = 500;
 
 populateGrid(16);
 
@@ -23,6 +24,9 @@ function populateGrid(size) {
     // Reset grid
     grid.innerHTML = null;
 
+    // Calculate new size
+    let boxSize = GRID_SIZE / size;
+
     // Populate grid boxes
     for (let i = 0; i < size; i++) {
         let currRow = document.createElement('grid-row');
@@ -30,6 +34,8 @@ function populateGrid(size) {
         for (let j = 0; j < size; j++) {
             let currBox = document.createElement('div');
             currBox.classList.add('grid-box');
+            currBox.style.height = boxSize + 'px';
+            currBox.style.width = boxSize + 'px';
         
             currRow.appendChild(currBox);
         }
@@ -42,7 +48,7 @@ function populateGrid(size) {
 
     boxes.forEach(box => {
         box.addEventListener('mouseover', function() {
-            box.setAttribute('style', 'background: pink;');
+            box.style.background = 'pink';
         });
     });
 }

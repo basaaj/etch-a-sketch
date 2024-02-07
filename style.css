@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .grid {
     display: flex;
     flex-direction: row;
@@ -10,8 +14,5 @@
 }
 
 .grid-box {
-    width: 25px;
-    height: 25px;
-    padding: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(215, 215, 215);
 }
